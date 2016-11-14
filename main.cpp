@@ -7,17 +7,17 @@ TEST(DEQUE, construcorTest)
 {
     Deque<int> firstD;
     Deque<int> secondD;
-    for (int i = 1; i <= 1000; ++i)
+    for (int i = 1; i <= 1000000; ++i)
         firstD.push_back(i);
-    for (int i = 1001; i <= 2000; ++i)
+    for (int i = 1000001; i <= 2000000; ++i)
         firstD.push_front(i);
     secondD = firstD;
     ASSERT_EQ(firstD.size(), secondD.size());
-    for (int i = 0; i < 2000; ++i)
+    for (int i = 0; i < 2000000; ++i)
         ASSERT_EQ(firstD[i], secondD[i]);
     Deque<int> thirdD;
     thirdD = secondD = firstD = firstD;
-    for (int i = 0; i < 2000; ++i)
+    for (int i = 0; i < 2000000; ++i)
         ASSERT_EQ(firstD[i], thirdD[i]);
 }
 
@@ -26,7 +26,7 @@ TEST(DEQUE, pushAndPopTest)
     
     Deque<int> myDeck;
     std::deque<int> stdDeck;
-    for (int i = 1; i <= 1000; ++i)
+    for (int i = 1; i <= 10000; ++i)
     {
         if (rand() % 2 == 0)
         {
@@ -38,11 +38,11 @@ TEST(DEQUE, pushAndPopTest)
             stdDeck.push_back(i);
         }
     }
-    for (int i = 0; i < 1000; ++i)
+    for (int i = 0; i < 10000; ++i)
     {
         ASSERT_EQ(myDeck[i], stdDeck[i]);
     }
-    for (int i = 1; i <= 1000; ++i)
+    for (int i = 1; i <= 10000; ++i)
     {
         if (rand() % 2 == 0)
         {
@@ -58,22 +58,22 @@ TEST(DEQUE, pushAndPopTest)
         }
     }
     ASSERT_TRUE(myDeck.empty());
-    
+
 }
 
 TEST(DEQUE, frontBackTest)
 {
     Deque<int> myDeck;
     std::deque<int> stdDeck;
-    for (int i = 1; i <= 50; ++i)
+    for (int i = 1; i <= 50000; ++i)
     {
         myDeck.push_front(i);
         stdDeck.push_front(i);
         ASSERT_EQ(myDeck.back(), stdDeck.back());
         ASSERT_EQ(myDeck.front(), stdDeck.front());
     }
-    
-    for (int i = 1; i <= 50; ++i) {
+  
+    for (int i = 1; i <= 50000; ++i) {
         myDeck.push_back(i);
         stdDeck.push_back(i);
         ASSERT_EQ(myDeck.back(), stdDeck.back());
@@ -81,7 +81,7 @@ TEST(DEQUE, frontBackTest)
     }
     Deque<int> myDeckSec;
     std::deque<int> stdDeckSec;
-    for (int i = 1; i <= 50; ++i) {
+    for (int i = 1; i <= 50000; ++i) {
         myDeck.push_back(i);
         stdDeck.push_back(i);
         ASSERT_EQ(myDeck.back(), stdDeck.back());
@@ -95,7 +95,7 @@ TEST(DEQUE, iteratorTest)
 {
     Deque<int> myDeck;
     std::deque<int> stdDeck;
-    for (int i = 1; i <= 1000; ++i)
+    for (int i = 1; i <= 100000; ++i)
     {
         if (rand() % 2 == 0)
         {
@@ -130,7 +130,7 @@ TEST(DEQUE, iteratorTest)
     ASSERT_EQ(*myDeck.crbegin(), *stdDeck.crbegin());
     ASSERT_EQ(*(myDeck.cend() - 1), *(stdDeck.cend()- 1));
     ASSERT_EQ(*(myDeck.crend() - 1), *(stdDeck.crend() - 1));
-    for (int i = 1; i < 1000; ++i)
+    for (int i = 1; i < 100000; ++i)
     {
         ASSERT_EQ((myDeck.begin()[i]), (stdDeck.begin()[i]));
         ASSERT_EQ(*(myDeck.end() - i), *(stdDeck.end() - i));
