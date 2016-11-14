@@ -169,7 +169,6 @@ TEST(DEQUE, timeTest)
 int main(int argc, char **argv)
 {
     srand(time(NULL));
-    Deque<int>::iterator a;
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
